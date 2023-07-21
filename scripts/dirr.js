@@ -64,7 +64,7 @@ function sendToDiscord(webhook, body) {
 Hooks.on("preCreateChatMessage", (chatMessage, content) => {
     try {
         let scene = game.scenes.get(chatMessage.speaker.scene);
-        let webhook = scene.getFlag("dirr", "webhook");
+        let webhook = scene?.getFlag("dirr", "webhook");
 
         if (!webhook) {
             webhook = game.settings.get("dirr", "icBackupWebhook");
